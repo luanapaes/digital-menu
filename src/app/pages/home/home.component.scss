@@ -1,0 +1,24 @@
+main {
+    padding: 0 30px;
+    box-sizing: border-box;
+
+    .container-categories-btn {
+        display: flex;
+        flex-direction: row;
+
+        gap: 15px;
+
+        width: 100%;
+        margin: 1.3% 0;
+        overflow-x: scroll;
+        scrollbar-width: none;
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        .container-categories-btn {
+            margin: 20px 0;
+        }
+    }
+}

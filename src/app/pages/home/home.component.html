@@ -4,4 +4,11 @@
     </header>
 
     <app-banner></app-banner>
+
+    <div class="container-categories-btn">
+        @for (category of categories; track category) {
+            <app-category-button [NameCategory]="category"></app-category-button>
+        }
+
+    </div>
 </main>
