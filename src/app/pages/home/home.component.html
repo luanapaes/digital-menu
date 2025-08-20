@@ -15,4 +15,25 @@
     <div class="search">
         <app-search-field></app-search-field>
     </div>
+
+    <section class="container-pratos">
+        @if (pratosFiltrados.length > 0) {
+            @for (prato of pratosFiltrados; track prato) {
+                <div>
+                    <h2>{{prato.nome}}</h2>
+                    <p>{{prato.descricao}}</p>
+                    <p>{{prato.preco}}</p>
+                </div>
+            }
+        } @else {
+            @for (prato of pratos; track prato) {
+                <div>
+                    <h2>{{prato.nome}}</h2>
+                    <p>{{prato.descricao}}</p>
+                    <p>{{prato.preco}}</p>
+                </div>
+            }
+        }
+        
+    </section>
 </main>
