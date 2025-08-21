@@ -28,7 +28,7 @@ export class PratosService {
       descricao: "Cuscuz recheado com carne de sol, queijo e vinagrete",
       preco: 29.99,
       foto_prato: "https://www.deline.com.br/assets/images/recipes/cuscuz-recheado-de-frango/mobile/thumb-video.jpg?v3",
-      categoria: "Sobrimesa"
+      categoria: "Sobremesa"
     },
   ];
 
