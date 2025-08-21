@@ -3,4 +3,5 @@ export interface Prato {
     preco: number;
     descricao: string;
     foto_prato: string;
+    categoria: string;
 }
