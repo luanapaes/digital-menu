@@ -1,7 +1,8 @@
 <div class="prato">
     <img [src]="pratoFoto" alt="Foto do prato: {{nome}}">
+    <p class="category">{{categoria}}</p>
     <h2>{{nome}}</h2>
     <p>{{descricao}}</p>
-    <p class="category">{{categoria}}</p>
     <p class="price">{{preco | currency:'BRL' }}</p>
+    <app-add-to-cart-button [prato]="fullPrato"></app-add-to-cart-button>
 </div>
