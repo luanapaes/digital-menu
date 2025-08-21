@@ -29,7 +29,7 @@ main {
         flex-wrap: wrap;
         gap: 20px 5px;
 
-        div {
+        .prato {
             width: 20%;
             height: auto;
             padding-right: 40px;
@@ -71,7 +71,7 @@ main {
             flex-wrap: wrap;
 
 
-            div{
+            .prato{
                 width: 100%;
                 padding: 0;
 
