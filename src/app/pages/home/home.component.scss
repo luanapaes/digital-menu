@@ -15,25 +15,44 @@ main {
         scrollbar-width: none;
     }
 
-    .search{
+    .search {
         width: 100%;
         margin-bottom: 2%;
     }
 
-    .container-pratos{
+    .container-pratos {
         width: 100%;
-        height: 400px;
-        background-color: rgb(186, 186, 212);
+        height: auto;
 
         display: flex;
         flex-direction: row;
-        gap: 30px;
+        flex-wrap: wrap;
+        gap: 20px 5px;
 
-        div{
-            width: 200px;
-            height: 200px;
-            padding: 0 20px;
-            background-color: #d6d6d6;
+        div {
+            width: 20%;
+            height: auto;
+            padding-right: 40px;
+
+            img{
+                height: 250px;
+                border-radius: 10px;
+            }
+
+            h2{
+                margin: 0;
+                text-transform: uppercase;
+                font-size: 1rem;
+            }
+
+            p{
+                margin: 6px 0;
+            }
+
+            .price{
+                color: darkgreen;
+                font-weight: 600;
+            }
         }
     }
 }
@@ -44,8 +63,24 @@ main {
             margin: 20px 0;
         }
 
-        .search{
-            margin-bottom: 2.5%;
+        .search {
+            margin-bottom: 10%;
+        }
+
+        .container-pratos{
+            flex-wrap: wrap;
+
+
+            div{
+                width: 100%;
+                padding: 0;
+
+                img{
+                    width: 100%;
+                    height: 300px;
+                    margin-bottom: 8px;
+                }
+            }
         }
     }
 }
