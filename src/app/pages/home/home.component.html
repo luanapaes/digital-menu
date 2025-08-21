@@ -13,21 +13,22 @@
     </div>
 
     <div class="search">
-        <app-search-field></app-search-field>
+        <app-search-field (termoPesquisado)="onSearch($event)"></app-search-field>
     </div>
 
     <section class="container-pratos">
         @if (pratosFiltrados.length > 0) {
             @for (prato of pratosFiltrados; track prato) {
-                <div>
+                <div class="prato">
+                    <img [src]="prato.foto_prato" alt="Foto do prato: {{prato.foto_prato}}">
                     <h2>{{prato.nome}}</h2>
                     <p>{{prato.descricao}}</p>
-                    <p>{{prato.preco}}</p>
+                    <p class="price">{{prato.preco |  currency:'BRL' }}</p>
                 </div>
             }
         } @else {
             @for (prato of pratos; track prato) {
-                <div>
+                <div class="prato">
                     <h2>{{prato.nome}}</h2>
                     <p>{{prato.descricao}}</p>
                     <p>{{prato.preco}}</p>
