@@ -19,22 +19,23 @@
     <section class="container-pratos">
         @if (pratosFiltrados.length > 0) {
             @for (prato of pratosFiltrados; track prato) {
-                <div class="prato">
-                    <img [src]="prato.foto_prato" alt="Foto do prato: {{prato.foto_prato}}">
-                    <h2>{{prato.nome}}</h2>
-                    <p>{{prato.descricao}}</p>
-                    <p class="category">{{prato.categoria}}</p>
-                    <p class="price">{{prato.preco |  currency:'BRL' }}</p>
-                </div>
+                <app-prato-card
+                    [nome]="prato.nome"
+                    [descricao]="prato.descricao"
+                    [pratoFoto]="prato.foto_prato"
+                    [preco]="prato.preco"
+                    [categoria]="prato.categoria"
+                ></app-prato-card>
             }
         } @else {
             @for (prato of pratos; track prato) {
-                <div class="prato">
-                    <h2>{{prato.nome}}</h2>
-                    <p>{{prato.descricao}}</p>
-                    <p class="category">{{prato.categoria}}</p>
-                    <p>{{prato.preco}}</p>
-                </div>
+                <app-prato-card
+                    [nome]="prato.nome"
+                    [descricao]="prato.descricao"
+                    [pratoFoto]="prato.foto_prato"
+                    [preco]="prato.preco"
+                    [categoria]="prato.categoria"
+                ></app-prato-card>
             }
         }
         
