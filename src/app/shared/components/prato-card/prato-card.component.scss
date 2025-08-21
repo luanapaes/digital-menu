@@ -1,0 +1,47 @@
+.prato {
+    width: 20vw;
+    height: auto;
+    padding-right: 40px;
+
+    img {
+        height: 250px;
+        border-radius: 10px;
+    }
+
+    h2 {
+        margin: 0;
+        text-transform: uppercase;
+        font-size: 1rem;
+    }
+
+    p {
+        margin: 6px 0;
+    }
+
+    .category {
+        background-color: #e0d4cb;
+        color: #351701;
+        width: fit-content;
+        padding: 2px 7px;
+        border-radius: 10px;
+    }
+
+    .price {
+        color: darkgreen;
+        font-weight: 600;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .prato {
+        width: 100%;
+        padding: 0;
+
+        img {
+            width: 100%;
+            height: 300px;
+            margin-bottom: 8px;
+        }
+    }
+}
