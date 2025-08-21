@@ -6,14 +6,14 @@ import { SearchFieldComponent } from '../../shared/components/search-field/searc
 import { Prato } from '../../shared/interfaces/prato';
 import { PratosService } from '../../shared/services/pratos.service';
 import { CurrencyPipe } from '@angular/common';
+import { PratoCardComponent } from "../../shared/components/prato-card/prato-card.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeaderComponent, BannerComponent, 
+  imports: [HeaderComponent, BannerComponent,
     CategoryButtonComponent, SearchFieldComponent,
-    CurrencyPipe
-  ],
+    PratoCardComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
