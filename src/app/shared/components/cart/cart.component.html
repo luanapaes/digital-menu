@@ -1,7 +1,25 @@
-<h2 mat-dialog-title>Olá! Bem-Vindo ao Carrinho</h2>
-<mat-dialog-content>
-    This dialog showcases the title, close, content and actions elements.
-</mat-dialog-content>
-<mat-dialog-actions>
-    <button mat-button mat-dialog-close>Close</button>
+<mat-dialog-actions >
+    <div>
+        <h2 mat-dialog-title>Seu carrinho</h2>
+        <span>({{pratosArray.length}})</span>
+    </div>
+    <button mat-button mat-dialog-close (click)="closeCarrinho()" title="Fechar carrinho">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
 </mat-dialog-actions>
+
+<mat-dialog-content>
+    @if (pratosArray.length > 0) {
+        @for (prato of pratosArray; track prato) {
+            <div>
+                <p>{{prato.nome}}</p>
+                <p class="price">{{prato.preco}}</p>
+            </div>
+        }
+        <hr>
+        <h3>{{total | currency:'BRL' }}</h3>
+    } @else {
+     <p>Seu carrinho está vazio</p>
+     <p>Escolha um de nossos pratos deliciosos, adicione o carrinho e receba!</p>
+    }
+</mat-dialog-content>
