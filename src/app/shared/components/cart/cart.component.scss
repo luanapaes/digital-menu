@@ -1,0 +1,44 @@
+div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    
+    h2 {
+        margin: 0;
+        padding-left: 15px;
+    }
+
+    span{
+        color: #46342bac;
+    }
+}
+
+mat-dialog-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #c3957f;
+}
+
+mat-dialog-content{
+    height: auto;
+    
+    div{
+        display: block;
+
+        p{
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .price{
+            margin-bottom: 8px;
+        }
+    }
+
+    h3{
+        text-align: end;
+    }
+}
