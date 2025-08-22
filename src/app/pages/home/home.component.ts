@@ -1,11 +1,10 @@
-import { Component, inject, Inject, Input, SimpleChanges } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { HeaderComponent } from '../../shared/components/header/header.component';
 import { BannerComponent } from '../../shared/components/banner/banner.component';
 import { CategoryButtonComponent } from '../../shared/components/category-button/category-button.component';
 import { SearchFieldComponent } from '../../shared/components/search-field/search-field.component';
 import { Prato } from '../../shared/interfaces/prato';
 import { PratosService } from '../../shared/services/pratos.service';
-import { CurrencyPipe } from '@angular/common';
 import { PratoCardComponent } from "../../shared/components/prato-card/prato-card.component";
 
 @Component({
