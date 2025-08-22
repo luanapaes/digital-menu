@@ -6,8 +6,6 @@ import { Prato } from '../interfaces/prato';
 })
 export class CartService {
 
-  constructor() { }
-
   pratosCarrinho: Prato[] = [];
 
   add(prato: Prato){
@@ -16,6 +14,13 @@ export class CartService {
   }
 
   get(){
-    return localStorage.getItem('pratos')
+    let arr = localStorage.getItem('pratos');
+
+    if(arr){
+      return JSON.parse(arr);
+    } else {
+      console.error("Erro ao recuperar array do localStorage");
+      
+    }
   }
 }
