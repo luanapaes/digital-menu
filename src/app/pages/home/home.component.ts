@@ -18,36 +18,44 @@ import { PratoCardComponent } from "../../shared/components/prato-card/prato-car
 })
 export class HomeComponent {
   categories = [
-    "Café da Manhã", "Almoço", "Salada", "Sobremesa", 
-    "Pizza", "Hambúrguer", "Massa",
-    "Pizza", "Hambúrguer", "Massa",
+    "Tudo", "Café da Manhã", "Almoço", "Sobremesa", "Jantar"
   ];
 
   pratosService = inject(PratosService);
 
   pratos: Prato[] = [];
   pratosFiltrados: Prato[] = [];
+  pratosExibidos: Prato[] = [];
 
   filter:string = '';
 
+  filterCategoria!: string;
+
+
   ngOnInit(): void {
-    this.getPratos(); //alimenta array para exibilo
+    this.pratos = this.pratosService.getPratos();
+    this.pratosExibidos = this.pratos;
   }
 
-  ngDoCheck(): void {// sempre que o valor do filter muda a função é chamada
-    this.pratosFiltrados = this.getPratosFiltrados(this.filter);
-  }
-
-  getPratosFiltrados(nomeProduto: string){
-    return this.pratosService.findPrato(nomeProduto);
-  }
-
-  getPratos(){
-    return this.pratos = this.pratosService.getPratos();
-  }
-
-  //recebe valor do componente pai e alimenta a var filter
   onSearch(value: string) {
     this.filter = value;
+    this.pratosExibidos = this.getPratosExibidos();
+  }
+
+  getPratosExibidos() {
+    // primeiro filtra por categoria
+    let categoriaFiltrada = this.filterCategoria
+      ? this.pratosService.getByCategory(this.filterCategoria)
+      : this.pratos;
+
+    // depois filtra pelo nome
+    return categoriaFiltrada.filter(prato =>
+      prato.nome.toLowerCase().includes(this.filter.toLowerCase())
+    );
+  }
+
+  getPratosPorCategoria(categoria: string) {
+    this.filterCategoria = categoria;
+    this.pratosExibidos = this.getPratosExibidos();
   }
 }
