@@ -7,7 +7,10 @@
 
     <div class="container-categories-btn">
         @for (category of categories; track category) {
-            <app-category-button [NameCategory]="category"></app-category-button>
+            <app-category-button 
+                [nameCategory]="category"
+                (category)="getPratosPorCategoria(category)"
+            ></app-category-button>
         }
 
     </div>
@@ -17,28 +20,26 @@
     </div>
 
     <section class="container-pratos">
-        @if (pratosFiltrados.length > 0) {
-            @for (prato of pratosFiltrados; track prato) {
-                <app-prato-card
-                    [nome]="prato.nome"
-                    [descricao]="prato.descricao"
+        @if (pratosExibidos.length > 0) {
+            @for (prato of pratosExibidos; track prato) {
+                <app-prato-card 
+                    [nome]="prato.nome" 
+                    [descricao]="prato.descricao" 
                     [pratoFoto]="prato.foto_prato"
-                    [preco]="prato.preco"
-                    [categoria]="prato.categoria"
-                    [fullPrato]="prato"
-                ></app-prato-card>
+                    [preco]="prato.preco"  
+                    [categoria]="prato.categoria">
+                </app-prato-card>
             }
         } @else {
-            @for (prato of pratos; track prato) {
-                <app-prato-card
-                    [nome]="prato.nome"
-                    [descricao]="prato.descricao"
-                    [pratoFoto]="prato.foto_prato"
-                    [preco]="prato.preco"
-                    [categoria]="prato.categoria"
-                ></app-prato-card>
-            }
+            <div class="not-found">
+                <img src="../../../assets/pratovazio.png" alt="Prato vazio">
+                <h2>OOPS, prato não encontrado</h2>
+                <p>Que tal tentar outra busca? Pode ser que encontre uma opção deliciosa! 🍴</p>
+                <app-category-button 
+                    nameCategory="Todos os pratos"
+                    (category)="getPratosPorCategoria('Todos os pratos')"
+                ></app-category-button>
+            </div>
         }
-        
     </section>
 </main>
