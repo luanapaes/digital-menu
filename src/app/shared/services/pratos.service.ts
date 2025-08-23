@@ -113,8 +113,8 @@ export class PratosService {
     });
   }
 
-  getByCategory(category: string){
-    if(category === 'tudo'){
+  getByCategory(category: string): Prato[]{
+    if(category === 'Tudo' || category === 'Todos os pratos'){
       return this.pratos;
     }
     return this.pratos.filter((p) => p.categoria === category);
