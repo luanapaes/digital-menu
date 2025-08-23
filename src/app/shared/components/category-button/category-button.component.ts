@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-category-button',
@@ -8,6 +8,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './category-button.component.scss'
 })
 export class CategoryButtonComponent {
-  @Input() NameCategory: string = '';
+  @Input() nameCategory: string = '';
 }
 
