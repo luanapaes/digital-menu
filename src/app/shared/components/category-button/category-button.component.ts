@@ -9,5 +9,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class CategoryButtonComponent {
   @Input() nameCategory: string = '';
+
+  @Output() category = new EventEmitter<string>()
+
+  getCategory() {
+    this.category.emit();
+  }
 }
 
