@@ -7,13 +7,14 @@ import { Prato } from '../../shared/interfaces/prato';
 import { PratosService } from '../../shared/services/pratos.service';
 import { PratoCardComponent } from "../../shared/components/prato-card/prato-card.component";
 import { AboutUsComponent } from '../../shared/components/about-us/about-us.component';
+import { FooterComponent } from '../../shared/components/footer/footer.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [HeaderComponent, BannerComponent,
     CategoryButtonComponent, SearchFieldComponent,
-    PratoCardComponent, AboutUsComponent],
+    PratoCardComponent, AboutUsComponent, FooterComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
