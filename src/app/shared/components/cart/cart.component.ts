@@ -36,9 +36,13 @@ export class CartComponent {
     this.total = this.pratosArray.reduce((ac, n) => ac += n.preco, 0)
   }
 
+  atualizarCarrinho(){
+    this.loadPratos();
+    this.calcularTotal();
+  }
+
   remove(nomePrato: string){
-    this.cartService.removePrato(nomePrato)
-    this.loadPratos()
-    this.calcularTotal()
+    this.cartService.removePrato(nomePrato);
+    this.atualizarCarrinho();
   }
 }
