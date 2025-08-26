@@ -13,7 +13,11 @@
         @for (prato of pratosArray; track prato) {
             <div>
                 <p>{{prato.nome}}</p>
-                <p class="price">{{prato.preco}}</p>
+                <p class="price">{{prato.preco | currency: 'BRL'}}</p>
+                <button class="remove-btn" (click)="remove(prato.nome)">
+                    <i class="fa-solid fa-trash-can"></i>
+                    Remover
+                </button>
             </div>
         }
         <hr>

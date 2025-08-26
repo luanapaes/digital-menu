@@ -32,9 +32,13 @@ export class CartComponent {
     this.dialog.closeAll();
   }
 
-
   calcularTotal(){
     this.total = this.pratosArray.reduce((ac, n) => ac += n.preco, 0)
   }
 
+  remove(nomePrato: string){
+    this.cartService.removePrato(nomePrato)
+    this.loadPratos()
+    this.calcularTotal()
+  }
 }
