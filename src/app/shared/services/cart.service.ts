@@ -23,4 +23,12 @@ export class CartService {
       
     }
   }
+
+  removePrato(pratoName: string) {
+    let pratos: Prato[] | [] = JSON.parse(localStorage.getItem("pratos") || "[]");
+
+    pratos = pratos.filter((prato: any) => prato.nome !== pratoName);
+
+    localStorage.setItem("pratos", JSON.stringify(pratos));
+  }
 }
