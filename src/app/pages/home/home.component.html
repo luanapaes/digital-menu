@@ -3,7 +3,7 @@
         <app-header></app-header>
     </header>
 
-    <app-banner></app-banner>
+    <app-banner id="endereco"></app-banner>
 
     <div class="container-categories-btn">
         @for (category of categories; track category) {
@@ -19,7 +19,7 @@
         <app-search-field (termoPesquisado)="onSearch($event)"></app-search-field>
     </div>
 
-    <section class="container-pratos">
+    <section class="container-pratos" id="cardapio">
         @if (pratosExibidos.length > 0) {
             @for (prato of pratosExibidos; track prato) {
                 <app-prato-card 
@@ -43,7 +43,7 @@
         }
     </section>
 
-    <div class="about-us">
+    <div class="about-us" id="quem-somos">
         <app-about-us></app-about-us>
     </div>
 </main>
