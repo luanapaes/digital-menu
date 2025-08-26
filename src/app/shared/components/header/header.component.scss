@@ -1,9 +1,11 @@
-nav {
+#topo {
+    background-color: #fff;
+    padding: 12px 24px;
+    border-bottom: 1px solid #e0e0e0;
     display: flex;
-    align-items: center;
-    height: 20vh;
-
     justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 
     img {
         width: 20vh;
@@ -12,70 +14,87 @@ nav {
     }
 
     ul {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        flex-wrap: wrap;
-
-        min-width: 450px;
         list-style: none;
+        display: flex;
+        gap: 16px;
         margin: 0;
         padding: 0;
+        align-items: center;
+        flex-wrap: wrap;
 
         li {
-            border: 1px solid #46342b;
-            padding: 4px 8px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: transform .3s ease-in;
+            display: flex;
+            align-items: center;
 
-            &:hover {
-                transform: scale(1.1);
+            a {
+                text-decoration: none;
+                color: #4b2e1e;
+                font-weight: 600;
+                padding: 8px 14px;
+                border: 1px solid #4b2e1e;
+                border-radius: 8px;
+                transition: all .5s ease-in-out;
+
+                &:hover {
+                    background-color: #4b2e1e;
+                    color: #fff;
+                }
             }
-        }
 
-        li a {
-            text-decoration: none;
-            color: #46342b;
-            font-weight: 500;
-        }
+            button {
+                background-color: transparent;
+                border: 1px solid #4b2e1e;
+                border-radius: 8px;
+                padding: 8px 12px;
+                cursor: pointer;
+                color: #4b2e1e;
+                font-size: 1rem;
+                transition: all .5s ease-in-out;
 
-        li button {
-            border: none;
-            background-color: transparent;
-            height: 100%;
+                &:hover {
+                    background-color: #4b2e1e;
+                    color: #fff;
+                }
+            }
 
             i {
-                font-size: 1.5rem;
-                color: #46342b;
+                font-size: 1.1rem;
             }
         }
-
     }
 }
 
-// responsividade
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        height: auto;
-        padding: 20px;
-        flex-direction: row;
 
-        img {
-            width: 150px;
-            margin-bottom: 15px;
-        }
+/* Responsivo */
+@media (max-width: 768px) {
+    #topo {
+        flex-direction: column;
+        align-items: center;
 
         ul {
-            flex-direction: column;
-            align-items: end;
-            min-width: auto;
-            gap: 10px;
+            flex-direction: row;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
 
-            li{
-                padding: 2px 4px;
+        li {
+
+            a,
+            button {
+                padding: 6px 10px;
+                font-size: 0.85rem;
+                border-radius: 6px;
             }
+
+            i {
+                font-size: 1rem;
+            }
+        }
+
+        img {
+            width: 100px;
+            margin-bottom: 15px;
         }
     }
 }
