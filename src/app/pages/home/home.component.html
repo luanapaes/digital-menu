@@ -44,6 +44,22 @@
             </div>
         }
     </section>
+    <!-- PAGINADOR -->
+    <div class="paginador">
+        @if (totalPages > 1) {
+            <button 
+                (click)="mudarPagina(currentPage - 1)" 
+                [disabled]="currentPage === 1">Anterior
+            </button>
+        
+            <span>Página {{currentPage}} de {{totalPages}}</span>
+        
+            <button 
+                (click)="mudarPagina(currentPage + 1)" 
+                [disabled]="currentPage === totalPages">Próxima
+            </button>
+        }
+    </div>
 
     <div class="about-us" id="quem-somos">
         <app-about-us></app-about-us>

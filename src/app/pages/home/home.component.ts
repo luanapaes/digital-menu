@@ -30,18 +30,22 @@ export class HomeComponent {
   pratosExibidos: Prato[] = [];
 
   filter:string = '';
-
   filterCategoria!: string;
 
+  // paginação
+  currentPage: number = 1;
+  itemsPerPage: number = 12; // quantidade de pratos por página
+  totalPages: number = 1;
 
   ngOnInit(): void {
     this.pratos = this.pratosService.getPratos();
-    this.pratosExibidos = this.pratos;
+    this.atualizarLista();
   }
 
   onSearch(value: string) {
     this.filter = value;
-    this.pratosExibidos = this.getPratosExibidos();
+    this.currentPage = 1;
+    this.atualizarLista();
   }
 
   getPratosExibidos() {
@@ -58,6 +62,24 @@ export class HomeComponent {
 
   getPratosPorCategoria(categoria: string) {
     this.filterCategoria = categoria;
-    this.pratosExibidos = this.getPratosExibidos();
+    this.currentPage = 1;
+    this.atualizarLista();
+  }
+
+  atualizarLista() {
+    const filtrados = this.getPratosExibidos();
+    this.totalPages = Math.ceil(filtrados.length / this.itemsPerPage);
+
+    const start = (this.currentPage - 1) * this.itemsPerPage;
+    const end = start + this.itemsPerPage;
+
+    this.pratosExibidos = filtrados.slice(start, end);
+  }
+
+  mudarPagina(pagina: number) {
+    if (pagina >= 1 && pagina <= this.totalPages) {
+      this.currentPage = pagina;
+      this.atualizarLista();
+    }
   }
 }
