@@ -19,7 +19,7 @@
         <app-search-field (termoPesquisado)="onSearch($event)"></app-search-field>
     </div>
 
-    <section class="container-pratos" id="cardapio">
+    <section class="container-pratos" id="cardapio" #cardapio>
         @if (pratosExibidos.length > 0) {
             @for (prato of pratosExibidos; track prato) {
                 <app-prato-card 
