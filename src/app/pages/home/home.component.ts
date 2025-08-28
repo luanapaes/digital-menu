@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { HeaderComponent } from '../../shared/components/header/header.component';
 import { BannerComponent } from '../../shared/components/banner/banner.component';
 import { CategoryButtonComponent } from '../../shared/components/category-button/category-button.component';
@@ -19,6 +19,8 @@ import { FooterComponent } from '../../shared/components/footer/footer.component
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  @ViewChild('cardapio') cardapio!: ElementRef;
+
   categories = [
     "Tudo", "Café da Manhã", "Almoço", "Sobremesa", "Jantar"
   ];
@@ -80,6 +82,8 @@ export class HomeComponent {
     if (pagina >= 1 && pagina <= this.totalPages) {
       this.currentPage = pagina;
       this.atualizarLista();
+
+      this.cardapio.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
 }
