@@ -3,6 +3,7 @@ import { Prato } from '../../interfaces/prato';
 import { CartService } from '../../services/cart.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AddPratoMessageSnackbarComponent } from '../add-prato-message-snackbar/add-prato-message-snackbar.component';
+import { CustomPrato } from '../../interfaces/custom-prato';
 @Component({
   selector: 'app-add-to-cart-button',
   standalone: true,
@@ -13,12 +14,12 @@ import { AddPratoMessageSnackbarComponent } from '../add-prato-message-snackbar/
 export class AddToCartButtonComponent {
   constructor(private _snackBar: MatSnackBar) { }
   
-  @Input() prato!: Prato;
+  @Input() prato!: CustomPrato;
 
   cartService = inject(CartService);
 
   addToCart(){
-    this.cartService.add(this.prato);
+    this.cartService.verifyPrato(this.prato);
     
     this._snackBar.openFromComponent(AddPratoMessageSnackbarComponent, {
       duration: 2 * 1000,
