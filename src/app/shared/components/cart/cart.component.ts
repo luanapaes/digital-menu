@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { CartService } from '../../services/cart.service';
 import { Prato } from '../../interfaces/prato';
 import { CurrencyPipe } from '@angular/common';
+import { CustomPrato } from '../../interfaces/custom-prato';
 
 @Component({
   selector: 'app-cart',
@@ -14,7 +15,7 @@ import { CurrencyPipe } from '@angular/common';
 })
 export class CartComponent {
   cartService = inject(CartService);
-  pratosArray: Prato[] = [];
+  pratosArray: CustomPrato[] = [];
   total: number = 0
 
   constructor(public dialog: MatDialog) { } 
@@ -33,7 +34,7 @@ export class CartComponent {
   }
 
   calcularTotal(){
-    this.total = this.pratosArray.reduce((ac, n) => ac += n.preco, 0)
+    this.total = this.pratosArray.reduce((ac, n) => ac += n.preco * n.qtdPedido!, 0)
   }
 
   atualizarCarrinho(){
