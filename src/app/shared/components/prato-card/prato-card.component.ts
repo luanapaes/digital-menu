@@ -2,6 +2,7 @@ import { CurrencyPipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { AddToCartButtonComponent } from "../add-to-cart-button/add-to-cart-button.component";
 import { Prato } from '../../interfaces/prato';
+import { CustomPrato } from '../../interfaces/custom-prato';
 
 @Component({
   selector: 'app-prato-card',
@@ -16,5 +17,13 @@ export class PratoCardComponent {
   @Input() preco: number = 0;
   @Input() pratoFoto: string = '';
   @Input() categoria: string = '';
-  @Input() fullPrato!: Prato;
+  @Input() fullPrato!: CustomPrato;
+
+  ngOnInit(): void {
+    this.fullPrato = {
+      nome: this.nome,
+      preco: this.preco,
+      qtdPedido: 1
+    }
+  }
 }
